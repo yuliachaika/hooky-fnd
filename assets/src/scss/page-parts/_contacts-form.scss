@@ -1,0 +1,79 @@
+.contacts-form {
+	padding-bottom: rem-calc(45);
+ 	&__row {
+		@include flex-grid-row();
+		justify-content: center;
+	}
+	&__map {
+		width: 100%; 
+		height: rem-calc(300);
+		&-wrap {
+			width: 100%; 
+		} 
+	}
+	&__info { 
+		padding-top: rem-calc(90); 
+		@include breakpoint(small) {
+			@include flex-grid-column(12, $grid-column-gutter);
+		}
+		@include breakpoint(medium) {
+			@include flex-grid-column(6);
+		}
+		@include col();
+		align-items: center;
+		&-wrap {
+			padding-bottom: rem-calc(130); 
+		}
+		&-name {
+			@include title(18, $gray-text)
+			padding: 0;
+			letter-spacing: rem-calc(0.45);
+		}
+		&-text {
+			@include text(15, $primary-color);
+		}
+	}
+	&__form {
+		&-wrap {
+			@include breakpoint(small) {
+				@include flex-grid-column(12, $grid-column-gutter);
+				justify-content: center;
+			}
+			@include breakpoint(medium) {
+				@include flex-grid-column(6);
+			}
+		}
+	}
+	&-social {
+		padding-bottom:  rem-calc(30);
+    list-style: none;
+    margin: 0;
+    @include row();
+		&__wrap {
+			
+		}
+		&__item {
+      display: block;
+      margin-right: rem-calc(11); 
+      width: rem-calc(45);
+      height: rem-calc(45); 
+      position: relative;
+      @include corner(15, $white, 5, 5, 5, 5) {
+        opacity: .25; 
+      }  
+    }
+    &__link {
+      display: block;
+      width: 100%;
+      font-size: rem-calc(24);
+      color: $white;
+      line-height: rem-calc(45); 
+      text-align: center;
+      background-color: $dark-gray;  
+      &:hover {
+        background-color: $red;
+        color: $white; 
+      }
+		}
+	}
+}

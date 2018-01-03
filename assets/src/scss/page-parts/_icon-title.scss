@@ -1,0 +1,37 @@
+.icon-title {
+	@include row();
+	justify-content: space-around;
+	&__item {
+		@include col();
+		align-items: center;
+		margin-bottom: rem-calc(20);
+		@include flex-grid-column(12);
+		@include breakpoint(medium down) {
+		}
+		@include breakpoint(medium) {
+			@include flex-grid-column(5);
+		}
+	} 
+	&__icon {
+		padding: rem-calc(30); 
+		margin-bottom: rem-calc(20); 
+		font-size: rem-calc(75);
+		color: $red; 
+		line-height: 1;
+		text-align: center; 
+		position: relative;
+		@include corner(45, $dark-gray, 0, 0, 0, 0) {
+			opacity: .25; 
+		};
+		transition: color .3s ease; 
+		&:hover {
+			cursor: pointer;
+			color: $primary-color;
+		}
+	}
+	&__title {
+		@include title(25, $dark-gray);
+		text-transform: none;
+		letter-spacing: rem-calc(0.63);
+	}
+}

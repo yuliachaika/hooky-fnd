@@ -1,0 +1,35 @@
+.title-text {
+	background-color: $white; 
+	&__row {
+		@include flex-grid-row();
+		align-items: center;
+		justify-content: center;
+		padding: rem-calc(90) 0; 
+	}
+	&__col {
+		@include breakpoint(small) {
+			@include flex-grid-column(12, $grid-column-gutter);
+			justify-content: center;
+		}
+		@include breakpoint(large) {
+			@include flex-grid-column(9);
+		}
+	}
+	&__wrap	{
+		@include breakpoint(large) {
+			padding: 0 rem-calc(20); 
+		}
+	}
+	&__title {
+		@include title(24, $primary-color);
+		letter-spacing: rem-calc(1.13); 
+		text-align: center;
+		&--color {
+			color: $red;
+		}
+	}
+	&__text {
+		@include text(15, $dark-gray);
+		text-align: center;
+	}
+}

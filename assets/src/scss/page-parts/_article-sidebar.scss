@@ -1,0 +1,29 @@
+.article-sidebar {
+	width: 100%;
+  overflow: hidden; 
+  &__row {
+  	@include flex-grid-row();
+  }
+  &__content {
+  	@include breakpoint(medium down) {
+      @include flex-grid-column(12, rem-calc(40));
+      padding-bottom: rem-calc(30);
+    }
+  	@include breakpoint(medium) {
+  		@include flex-grid-column(7, rem-calc(20));
+    }
+  }
+  &__sidebar {
+  	@include breakpoint(medium down) {
+      @include flex-grid-column(12, rem-calc(40));
+    }
+  	@include breakpoint(medium) {
+  		@include flex-grid-column(5, 0);
+  		padding-right: rem-calc(10); 
+    }
+  	@include breakpoint(large) {
+      padding-left: rem-calc(40);
+      padding-right: rem-calc(0);  
+    }
+  }
+}

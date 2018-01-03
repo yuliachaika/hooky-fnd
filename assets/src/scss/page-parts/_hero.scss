@@ -1,0 +1,94 @@
+.hero {
+  width: 100%; 
+	position: relative;
+	height: calc(100vh); 
+	@include bg('../img/hero.png');
+	@include breakpoint(large) {
+		background-attachment: fixed; 
+	}
+	&__row { 
+		@include flex-grid-row();
+		padding: rem-calc(50) 0 0; 
+		height: 100%; 
+		align-items: center;
+	}
+	&-col {
+		@include flex-grid-column(12, $grid-column-gutter);
+	}
+	&-slider {
+		display: block;
+	}
+	&-slide {
+		width: 100%;  
+  	&__wrap {
+  		@include col();
+  		align-items: center
+  	}
+  	&__title {
+      color: $white;
+      font-family: $primary-font-family;
+      font-weight: 400;
+      text-transform: uppercase;
+      text-align: center;
+      @include breakpoint(small) {
+        font-size: rem-calc(60);
+      }
+  		@include breakpoint(large) {
+        font-size: rem-calc(90);
+      }
+  	}
+  	&__subtitle {
+  		margin: 0 auto; 
+  		display: inline-block;
+  		color: $white;
+  		font-family: $body-font-family;
+  		font-weight: 300;
+  		letter-spacing: 1.88px;
+  		position: relative;
+      @include breakpoint(small) {
+        font-size: rem-calc(45);
+      }
+      @include breakpoint(large) {
+        font-size: rem-calc(75);
+      }
+  		&::before {
+  			content: "";
+  			position: absolute;
+  			width: 110px;
+  			height: 3px;
+  			background: linear-gradient(to right bottom, $white, $dark-gray);
+  			right: -130px;
+  			top: 0;
+  			bottom: 0;
+  			margin: auto; 
+  		}
+  		&::after {
+  			content: "";
+  			position: absolute;
+  			width: 110px;
+  			height: 3px;
+  			background: linear-gradient(to left bottom, $white, $dark-gray);
+  			left: -130px;
+  			top: 0;
+  			bottom: 0;
+  			margin: auto; 
+  		}
+  	}
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

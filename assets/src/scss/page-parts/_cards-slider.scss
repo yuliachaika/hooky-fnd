@@ -1,0 +1,108 @@
+.cards-slider {
+	padding-bottom: rem-calc(90); 
+	position: relative;
+	&__row {
+		@include flex-grid-row();
+		justify-content: center;
+		align-items: center;
+		@include breakpoint(medium only) {
+			width: 80%;
+		}	 
+	}
+	&__slider {
+		width: 100%;
+	}
+	&-slide {
+		margin-bottom: rem-calc(30); 
+		&__card {
+			padding-bottom: rem-calc(86);
+			position: relative;
+			overflow: hidden;
+		}
+		&__wrap {
+			padding: 0 rem-calc(10) 0;
+			max-width: rem-calc(370);
+			display: flex;
+			flex-direction: column;
+			margin: auto;
+			&:hover {
+				cursor: pointer;
+				& .cards-slider-slide__info {
+    			transform: translate3d(0,0,0);
+    			&-hide {
+    				opacity: 1;
+    			}
+				}
+			}  
+		}
+		&__image	{
+			max-width: 100%;
+			height: auto;
+			overflow: hidden;
+		}
+		&__info { 
+			width: 100%; 
+			position: absolute;
+		  bottom: 0;
+		  left: 0;
+		  right: 0;
+		  transition: opacity .4s, transform 0.35s ease-in-out;ion: .6s ease-in;
+			padding: rem-calc(15) 0 rem-calc(20); 
+			text-align: center;
+			background-color: $dark-gray;
+			transform: translate3d(0,calc(100% - 86px),0);
+			&-hide {
+				list-style: none;
+				margin: 0;
+				opacity: 0; 
+				transition: opacity .4s ease-in-out;
+				&-item {
+					margin: 0 rem-calc(6); 
+					display: inline-block;	
+				}
+				&-link {
+					display: block;
+					width: rem-calc(35);
+					height: rem-calc(35);
+					line-height: rem-calc(35);
+					font-size: rem-calc(20);
+					background-color: $white;
+					border-radius: 50%;
+					text-align: center;
+					&--fb {
+						color: #2e4586; 
+					} 
+					&--wu {
+						color: #1DE663; 
+					}
+					&--ig {
+						color: #c61a6f;
+					} 
+					&--pin {
+						color: #AD0017; 
+					}    
+				}
+			}
+			
+		}
+		&__title {
+			@include text(30, $white);
+		}
+		&__text {
+			padding: 0 rem-calc(8);
+			margin-bottom: rem-calc(10);  
+			display: inline-block;
+			color: $light-text;
+			font-size: rem-calc(14);
+			font-weight: 400;
+			line-height: rem-calc(24);
+			text-transform: uppercase;
+			letter-spacing: rem-calc(0.35);
+			text-align: center;
+			position: relative;
+			@include corner(9, $light-text, 0, 0, 0, 0) {
+				opacity: .23;
+			};
+		}
+	}
+}

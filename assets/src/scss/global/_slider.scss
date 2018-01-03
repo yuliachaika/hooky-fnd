@@ -1,0 +1,76 @@
+@import '../../components/slick-carousel/slick/slick.scss';
+@import '../../components/slick-carousel/slick/slick-theme.scss';
+
+.slide {
+ &-controls {
+      }
+      &-cards { 
+      }
+      &-social {
+
+      }
+      &-arrow {
+        position: absolute;
+        top: 0;
+        bottom: 0; 
+        margin: auto;  
+        display: block;
+        width: rem-calc(55);
+        height: rem-calc(55);
+        border-top: 3px solid;
+        border-right: 3px solid;
+        transition: opacity 0.3s ease-out; 
+        z-index: 5;
+        &:hover {
+          @include breakpoint(small only) {
+            opacity: 0;
+          }
+          opacity: .5;  
+        }
+        &-hero {
+          @include breakpoint(small only) {
+            opacity: 0;
+          }
+          border-color:  $white; 
+          &--prev {
+            left: 5%; 
+            transform: rotate(225deg);
+          }
+          &--next {
+            right: 5%; 
+            transform: rotate(45deg);
+          }
+        }
+        &-cards {
+          @include breakpoint(large down) {
+            display: none;
+          }
+          border-color: $dark-gray;
+          &--next {
+            right: 5%; 
+            transform: rotate(45deg);
+          } 
+        }
+      }
+    }
+
+
+ // // custom slick dots
+ .custom-dots {
+  &-cards {
+    display: none;
+  }
+  &-hero {
+    @include dots(13, 30, $red) {
+      margin: 0 0 0 rem-calc(5);
+    };
+  }
+  &-social {
+    @include dots(6, 15, $dark-gray) {
+      margin: 0 0 0 rem-calc(4);
+    };
+    bottom: rem-calc(80);
+  }
+}
+
+

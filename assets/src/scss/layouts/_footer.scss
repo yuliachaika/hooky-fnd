@@ -1,0 +1,63 @@
+.footer {
+  padding: rem-calc(90) 0; 
+  width: 100%; 
+  background-color: $gray;
+  &__row {
+    @include flex-grid-row();
+    @include col();
+    align-items: center;
+    justify-content: center;
+  } 
+  &-logo {
+    padding-bottom: rem-calc(16);
+    &__img {
+      padding-bottom: rem-calc(10); 
+      max-width: rem-calc(170);
+      animation-name: pulse;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in;
+      animation-play-state: paused;
+      &:hover {
+        animation-play-state: running;
+        cursor: pointer;
+      }  
+    } 
+  }
+  &-menu {
+    margin: 0;
+    padding-left: 0;
+    padding-bottom: rem-calc(40);  
+    list-style: none;
+    justify-content: center;
+    @include breakpoint(large) {
+      @include flex-grid-row();
+    }
+    &__item {
+      padding: rem-calc(8) rem-calc(15);
+      text-align: center; 
+    }
+    &__link {
+      @include title(15, $footer-menu);
+      padding: rem-calc(5); 
+      line-height: 20px; 
+      @include corner(7, $gray, 0, 0, 0, 0);
+      position: relative;
+      &:hover {
+        color: $footer-menu-hover;
+        @include corner(7, $footer-menu-hover, 0, 0, 0, 0); 
+      }  
+    }
+  }
+  &-info {
+    &__text {
+      @include text(15, $dark-gray);
+      &--light {
+        color: $footer-text;
+      }
+      &--red {
+        color: $red; 
+      }
+    }
+  }
+}

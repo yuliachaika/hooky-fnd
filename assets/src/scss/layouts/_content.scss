@@ -1,0 +1,151 @@
+.content {
+  &__img {
+    width: 1046px;
+    opacity: 0;
+    &-wrap {
+      @include breakpoint(small) {
+        margin-bottom: rem-calc(20); 
+        height: rem-calc(352);
+      } 
+      @include breakpoint(large) {
+        margin-bottom: rem-calc(40);
+        height: rem-calc(452);
+      } 
+      position: relative;
+      transition: opacity .4s ease-in; 
+      &::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        @include bg('../img/blog.png');
+        opacity: .58; 
+        background-position: center;
+        @include breakpoint(small) {
+          width: 100%; 
+        }
+         @include breakpoint(large) {
+          width: rem-calc(1046);
+          background-position: 60% 30%;
+        } 
+        top: 0;
+        right: 0; 
+      }
+    }
+  }
+  &-info {
+    padding-bottom: rem-calc(20); 
+    &__title {
+      @include title(25, $primary-color);
+      line-height: rem-calc(30); 
+      letter-spacing: 0.63px;
+    }
+    &__list {
+      list-style: none;
+      margin: 0; 
+      padding-bottom: rem-calc(20);
+      @include row();
+    }
+    &__item {
+      padding: 0 rem-calc(18);
+      opacity: 0.58;
+      color: $dark-gray;
+      font-size: rem-calc(13);
+      font-weight: 400;
+      letter-spacing: rem-calc(0.33);
+      position: relative;
+      &::before {
+        content: "/";
+        position: absolute;
+        width: rem-calc(4);
+        height: rem-calc(7);
+        top: 0;
+        left: rem-calc(-6);    
+      }
+      &--link {
+        padding: 0;
+        color: $red;
+        transition: opacity .4s ease-in; 
+        &:hover {
+          opacity: 1;
+          color: $red; 
+        }
+        &::before {
+          content: ""; 
+        }
+      }
+      &--tag {
+        color: $black;
+        font-weight: 500;
+      }
+      &:first-child {
+        padding-left: 0;
+        &::before {
+          content: ""; 
+        }
+      } 
+    }
+    &__text {
+      @include text(15, $dark-gray);
+      padding-bottom: rem-calc(22); 
+    }
+  }
+  &-social {
+    padding-bottom:  rem-calc(30);
+    list-style: none;
+    margin: 0;
+    @include row();
+    &__item {
+      display: block;
+      margin-right: rem-calc(11); 
+      width: rem-calc(45);
+      height: rem-calc(45); 
+      position: relative;
+      @include corner(15, $dark-gray, 0, 0, 0, 0) {
+        opacity: .3; 
+      }  
+    }
+    &__link {
+      display: block;
+      width: 100%;
+      font-size: rem-calc(24);
+      color: $dark-gray;
+      line-height: rem-calc(45); 
+      text-align: center;
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+  &__links-wrap {
+    @include row();
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__btn {
+    display: block;
+    width: rem-calc(60);
+    height: rem-calc(60);
+    border-top: 1px solid;
+    border-right:  1px solid;
+    transform: rotate(45deg);
+    opacity: 0.46;
+    &:hover {
+      opacity: .8; 
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

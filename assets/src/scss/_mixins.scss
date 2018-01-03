@@ -1,0 +1,187 @@
+@mixin title($font-size, $color) {
+  padding-bottom: rem-calc(18); 
+  color: $color;
+  font-family: $body-font-family;
+  font-size: rem-calc($font-size);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: rem-calc(0.75);
+}
+
+@mixin text($px, $color) {
+  color: $color;
+  font-family: $primary-font-family; 
+  font-size: rem-calc($px);
+  font-weight: 400;
+  line-height: rem-calc(24);
+  letter-spacing: rem-calc(0.38); 
+}
+
+@mixin corner($px, $color, $t, $l, $b, $r) {
+  &::before {
+    content: '';
+    position: absolute;
+    width: rem-calc($px);
+    height: rem-calc($px);
+    border-top: 1px solid $color;
+    border-left: 1px solid $color;   
+    top: rem-calc($t);
+    left: rem-calc($l);
+    @content;  
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    width: rem-calc($px);
+    height: rem-calc($px);
+    border-bottom: 1px solid $color;
+    border-right: 1px solid $color;   
+    bottom: rem-calc($b);
+    right: rem-calc($r); 
+    @content; 
+  }
+}
+
+@mixin corner-title($px, $color) {
+  &::before {
+    content: '';
+    position: absolute;
+    width: rem-calc($px);
+    height: rem-calc($px);
+    border-top: 1px solid $color;
+    border-left: 1px solid $color;   
+    top: -20%;
+    left: 20%;
+    @content;  
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    width: rem-calc($px);
+    height: rem-calc($px);
+    border-bottom: 1px solid $color;
+    border-right: 1px solid $color;   
+    bottom: -20%;
+    right: 14%; 
+    @content; 
+  }
+}
+
+@mixin bg($url) {
+  background-image: url($url); 
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin col() {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+@mixin row() {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+@mixin progress($opacity) {
+  z-index: 1; 
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../img/skill1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom; 
+    opacity: $opacity;
+    z-index: -1; 
+    bottom: 0;
+    left: 0; 
+    transition: opacity .3s ease-out;  
+  }
+  &:hover::after {
+    cursor: pointer;
+    opacity: 1; 
+  }
+}
+
+@mixin dots($wt, $ht, $color) {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: rem-calc(25);
+    margin: auto;
+    & button {
+      display: none;
+    }
+    & li {
+      @content; 
+      display: inline-block;
+      list-style: none;
+      width: rem-calc($wt);
+      height: rem-calc($ht);
+      transform: skew(-26deg);
+      background-color: $white;
+      cursor: pointer;
+      transition: transform .3s ease-in; 
+      &.slick-active {
+        background-color: $color; 
+      } 
+      &:first-child {
+        margin-left: 0;
+      }
+      &:hover {
+        transform: skew(-20deg);
+      }
+    } 
+}
+
+@mixin btn($color) {
+  display: block; 
+  padding: 0 rem-calc(35);
+  min-width: rem-calc(112); 
+  transition-property: background-color, box-shadow;
+  transition-duration: .5s;
+  transition-timing-function: ease-out;
+   @if $color == $red {
+      height: rem-calc(90);  
+      background-color: $red;
+      @include title(25, $white);
+      line-height: rem-calc(90); 
+      text-transform: none;
+      letter-spacing: rem-calc(0.63);
+      &:hover {
+        cursor: pointer;
+        background-color: $dark-gray;
+        box-shadow: 0 rem-calc(90) 0 0  rgba(0,0,0,0.25) inset, 0 rem-calc(-90) 0 0  rgba(0,0,0,0.25) inset;
+        color: $white;  
+      }  
+    } @else {
+      height: rem-calc(45);  
+      background-color: $dark-gray; ;
+      @include title(15, $white);
+      line-height: rem-calc(45); 
+      letter-spacing: rem-calc(0.38); 
+      &:hover {
+        cursor: pointer;
+        background-color: $red;
+        box-shadow: 0 rem-calc(50) 0 0  rgba(0,0,0,0.25) inset, 0 rem-calc(-50) 0 0  rgba(0,0,0,0.25) inset;
+        color: $white;  
+      }  
+    }
+}
+
+
+
+
+
+
+
+
+

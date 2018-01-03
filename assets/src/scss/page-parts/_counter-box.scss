@@ -1,0 +1,46 @@
+.counter-box {
+	width: 100%; 
+	background-color: $red; 
+	padding: rem-calc(110) 0; 
+	&__row {
+		@include flex-grid-row();
+		justify-content: center; 
+	}
+	&__item {
+		padding: rem-calc(35) 0;
+		min-width: rem-calc(330); 
+		position: relative;
+		@include corner(120, $white, 0, 0, 0, 0);
+		@include breakpoint(medium down) {
+				margin-bottom: rem-calc(30); 
+			} 
+		&-wrap {
+			@include breakpoint(small) {
+				@include flex-grid-column(12, $grid-column-gutter);
+				@include row();
+				justify-content: center;
+			}
+			@include breakpoint(large) {
+				@include flex-grid-column(4);
+			} 
+		}
+	}
+	&__number {
+		display: block;
+		color: $white;
+		font-size: rem-calc(90);
+		font-weight: 700;
+		letter-spacing: rem-calc(2.25); 
+		text-align: center;
+		transition: color .4s ease-in; 
+		&:hover {
+			cursor: pointer;
+			color: $primary-color; 
+		}
+		
+	}
+	&__text {
+		@include text(30, $white); 
+		text-align: center;
+	}
+}

@@ -1,0 +1,98 @@
+.progress {
+	// display: none !important;
+	@include row();
+	flex-wrap: nowrap; 
+	padding-right: 0;
+	@include breakpoint(large) {
+		padding-left: rem-calc(65); 
+	}
+	&__item {
+		@include col();
+		&--first {
+			z-index: 2; 
+			@include breakpoint(large down) {
+				transform: translateX(rem-calc(-125));
+			}
+			transform: translateX(rem-calc(-105));
+		}
+		&--middle {
+			z-index: 3; 
+			@include breakpoint(large down) {
+				transform: translateX(rem-calc(-250));
+			}
+			transform: translateX(rem-calc(-215));
+		}
+		&--last {
+			z-index: 4; 
+			@include breakpoint(large down) {
+				transform: translateX(rem-calc(-375));
+			}
+			transform: translateX(rem-calc(-325));
+		}
+	}
+	&-title {
+		padding: 0 rem-calc(74) rem-calc(25) 0;  
+		&__title {
+			@include text(15, $dark-gray);
+			font-family: $body-font-family;
+			text-align: right;
+			position: relative;
+			&::after {
+				content: "";
+				position: absolute;
+				width: rem-calc(30);
+				height: rem-calc(23);
+				background: url('../img/line.svg'); 
+				top: rem-calc(8);
+				right: rem-calc(-35);   
+			}
+		}
+	}
+	&-img {
+		padding: 0 rem-calc(10) rem-calc(15) rem-calc(10); 
+		@include row();
+		align-items: flex-end;
+		position: relative;
+			width: rem-calc(212);
+			height: rem-calc(385);
+		@include breakpoint(large down) {
+			width: rem-calc(200);
+			height: rem-calc(385);
+		}
+		@include breakpoint(large) {
+			width: rem-calc(212);
+			height: rem-calc(385);
+		}
+		@include progress(1);
+		&--first {
+			@include progress(.8);
+		}
+		&--middle {
+			@include progress(.6);
+		}
+		&--last {
+			padding: 0; 
+			@include progress(.4);
+		}
+		&__text {
+			font-family: $primary-font-family;
+			font-size: rem-calc(18);
+			font-weight: 700;
+			color: $white; 
+			letter-spacing: 0.45px;
+			&-wrap {
+				width: 100%; 
+				@include row();
+				align-items: flex-end;
+				justify-content: space-between;
+			}
+			&--dark {
+				@include title(30, $dark-gray);
+				padding: 0;  
+			}
+			&-counter {
+				padding: 0 0 rem-calc(15) rem-calc(10); 
+			}
+		}  
+	}
+}

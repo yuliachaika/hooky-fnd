@@ -1,0 +1,107 @@
+.info-images {
+  width: 100%;
+  overflow: hidden; 
+  background-color: $light-gray; 
+  &__row {
+    @include flex-grid-row();
+    justify-content: flex-end; 
+  }
+  &__text-col {
+    padding-top: rem-calc(20px); 
+    @include col();
+    justify-content: center;
+    align-items: start;
+    @include flex-grid-column(12, $grid-column-gutter);
+    @include breakpoint(large) {
+      @include flex-grid-column(6, $grid-column-gutter);
+      padding-top: 0;
+    }
+    &-wrap {
+      @include breakpoint(large) {
+        padding-left: rem-calc(104); 
+      }
+    }
+    &-title {
+      @include title(30, $red);
+      text-align: center;
+      @include breakpoint(large) {
+        text-align: right;
+      }
+    }
+    &-text {
+      @include text(15, $dark-gray); 
+      text-align: center;
+      @include breakpoint(large) {
+        text-align: right;
+      }
+      padding-bottom: rem-calc(28); 
+      &-wrap {
+        padding-left: rem-calc(20); 
+      }
+    }
+    &-info {
+      padding: 0 rem-calc(5);
+      margin-bottom: rem-calc(20); 
+      color: $gray;
+      font-family: $body-font-family;
+      font-size: rem-calc(15);
+      font-weight: 500;
+      line-height: rem-calc(24);
+      letter-spacing: 0.38px;
+      display: inline-block;
+      position: relative;
+      @include corner(5, $gray, 0, 0, 0, 0);
+    }
+  }
+  &__img-col {
+    position: relative;
+    @include flex-grid-column(12, $grid-column-gutter);
+    @include breakpoint(large) {
+      @include flex-grid-column(6, $grid-column-gutter);
+    }
+    &-img {
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      border-right: 3px solid $white;
+      transition: opacity .3s ease-in;
+      &:hover {
+        cursor: pointer;
+        opacity: .7; 
+      }
+      &-wrap {
+        background: $black;
+        &--current {
+          position: relative;
+        }
+        &--hide-for-medium {
+          @include breakpoint(small) {
+            display: none;  
+          }
+          @include breakpoint(large) { 
+            display: block; 
+            position: absolute;
+            transform: translateX(rem-calc(190));
+          }
+        }
+        &--hide-for-large {
+          @include breakpoint(small) {
+            display: none;
+          }
+          @include breakpoint(xlarge) {
+            display: block; 
+            position: absolute;
+            right: 0;
+            transform: translateX(16.75rem);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
